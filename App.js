@@ -1,20 +1,17 @@
-import * as React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from './screens/HomeScreen';
-import AboutScreen from './screens/AboutScreen';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import DashboardScreen from './screens/DashboardScreen';
+import SettingsScreen from './screens/SettingsScreen';
 
-const Stack = createNativeStackNavigator();
-
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name="Home" component={HomeScreen}/>
-        <Stack.Screen name="About" component={AboutScreen}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
-
-export default App;
+const  Drawer = createDrawerNavigator();
+ export default function App(){
+    return (
+        <NavigationContainer>
+            <Drawer.Navigator>
+                <Drawer.Screen name='Dashboard' component={DashboardScreen}/>
+                <Drawer.Screen name='Settings' component={SettingsScreen}/>
+            </Drawer.Navigator>
+        </NavigationContainer>
+    )
+ }
